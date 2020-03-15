@@ -27,9 +27,13 @@ public class Factory {
         v.setResizable(false);
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setLocationRelativeTo(null);
-        
+         
         boolean createACar = false;
+        
+        
         while(true){
+            admin.manageNodes();
+            admin.updateNodes();
             if (createACar) {
                 createACar = false;
             }else{
