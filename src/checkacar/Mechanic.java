@@ -18,11 +18,29 @@ public class Mechanic {
         isCar = false;
     }
     
-    public void checkACar() throws InterruptedException{
+    public void checkACar(int numberID, int priority) throws InterruptedException{
         //Thread.sleep(5000);
         int p = checkProbably();
         switch (p) {
-            case val:
+            case 1:
+                switch (priority) {
+                    case 1:
+                        Factory.firstPriority.insertANode(numberID, priority);
+                        break;
+                    case 2:
+                        Factory.secondPriority.insertANode(numberID, priority);
+                        break;
+                    case 3:
+                        Factory.thirdPriority.insertANode(numberID, priority);
+                        break;
+                    default:
+                        throw new AssertionError();
+                }
+                break;
+            case 2:
+                Factory.inMaintenance.insertANode(numberID, priority);
+                break;
+            case 3:
                 
                 break;
             default:

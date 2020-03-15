@@ -21,9 +21,13 @@ public class Factory {
     public static void main(String[] args) {
         
         
+        boolean createACar = false;
         while(true){
-            
-            
+            if (createACar) {
+                createACar = false;
+            }else{
+                createACar = true;
+            }    
         }
         
     
@@ -34,11 +38,13 @@ public class Factory {
         
         switch (priority) {
             case 1:
-                firstPriority.insertANewNode(numberID);
+                firstPriority.insertANode(numberID, 1);
                 break;
             case 2:
+                secondPriority.insertANode(numberID, 2);
                 break;
             case 3:
+                thirdPriority.insertANode(numberID, 3);
                 break;
             default:
                 throw new AssertionError();

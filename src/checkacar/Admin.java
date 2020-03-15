@@ -10,5 +10,42 @@ package checkacar;
  * @author Fernando Baladi
  */
 public class Admin {
+
+    public Admin() {
+    }
     
+    
+    
+    public void manageNodes(){
+        if (!Factory.secondPriority.isEmpty()) {
+        
+            Factory.secondPriority.actNumberNodes();
+        
+        }
+        if (!Factory.thirdPriority.isEmpty()) {
+            
+            Factory.thirdPriority.actNumberNodes();
+        
+        }
+    }
+    
+    
+    public int returnANode(){
+        if (!Factory.firstPriority.isEmpty()) {
+        
+            return Factory.firstPriority.pull();
+        
+        }else if(!Factory.secondPriority.isEmpty()){
+        
+            return Factory.secondPriority.pull();
+            
+        }else if(!Factory.thirdPriority.isEmpty()){
+        
+            return Factory.thirdPriority.pull();
+            
+        }
+        
+        return 0;
+    }
+        
 }
