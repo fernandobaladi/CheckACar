@@ -5,6 +5,8 @@
  */
 package checkacar;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Fernando Baladi
@@ -20,6 +22,11 @@ public class Factory {
         
     public static void main(String[] args) {
         
+        Vista v = new Vista();
+        v.setVisible(true);
+        v.setResizable(false);
+        v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        v.setLocationRelativeTo(null);
         
         boolean createACar = false;
         while(true){
