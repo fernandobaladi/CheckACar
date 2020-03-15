@@ -12,7 +12,7 @@ package checkacar;
 public class Queue {
  
     private Node root, last;
-    public Queue(int priority) {
+    public Queue() {
         this.root = null;
         this.last = null;
     }
@@ -22,18 +22,6 @@ public class Queue {
             return true;
         }else{
             return false;
-        }
-    }
-    
-    public void insertANewNode(int numberID, int priority){
-        Node newNode = new Node(numberID, priority);
-        newNode.setpNext(null);
-        if (isEmpty()) {
-            this.root = newNode;
-            this.last = newNode;
-        }else{
-            this.last.setpNext(newNode);
-            this.last = newNode;
         }
     }
     
@@ -81,6 +69,15 @@ public class Queue {
         return this.root.getID();
     }
     
+    public void actNumberNodes(){
+        Node aux = this.root;
+        while(aux != null){
+            aux.setnCarsChecked(aux.getnCarsChecked()+1);
+            aux = aux.getpNext();
+        
+        }
+    }
+    
     public void printEveryNode(){
         Node aux = root;
         System.out.println("Printing the queue");
@@ -109,15 +106,5 @@ public class Queue {
 
     public void setLast(Node last) {
         this.last = last;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
-    
+    }    
 }

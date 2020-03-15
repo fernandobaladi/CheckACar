@@ -27,10 +27,18 @@ public class Factory {
         v.setResizable(false);
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setLocationRelativeTo(null);
+         
+        boolean createACar = false;
+        
         
         while(true){
-            
-            
+            admin.manageNodes();
+            admin.updateNodes();
+            if (createACar) {
+                createACar = false;
+            }else{
+                createACar = true;
+            }    
         }
         
     
@@ -41,11 +49,13 @@ public class Factory {
         
         switch (priority) {
             case 1:
-                firstPriority.insertANewNode(numberID);
+                firstPriority.insertANode(numberID, 1);
                 break;
             case 2:
+                secondPriority.insertANode(numberID, 2);
                 break;
             case 3:
+                thirdPriority.insertANode(numberID, 3);
                 break;
             default:
                 throw new AssertionError();
