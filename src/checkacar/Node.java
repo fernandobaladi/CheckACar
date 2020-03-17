@@ -12,21 +12,27 @@ package checkacar;
 public class Node {
     private int ID, priority, nCarsChecked;
     private Node pNext;
-
-    public Node(int ID, int priority, Node pNext) {
-        this.ID = ID;
-        this.priority = priority;
-        this.pNext = pNext;
-        this.nCarsChecked = 0;
-    }
-
+    
+    //This method instance a new Node only with ID and its priority. 
+    //It doesn't care about the number of cars checked.
     public Node(int ID, int priority) {
         this.ID = ID;
         this.priority = priority;
         this.pNext = null;
         this.nCarsChecked = 0;
     }
+    //This method instance a new Node with ID and its priority. 
+    //In this method it's important to the number of cars checked.
+    public Node(int ID, int priority, int nCarsChecked) {
+        this.ID = ID;
+        this.priority = priority;
+        this.pNext = null;
+        this.nCarsChecked = nCarsChecked;
+    }
 
+    
+    //Getters and setters
+    
     public int getID() {
         return ID;
     }
