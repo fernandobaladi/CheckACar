@@ -20,36 +20,21 @@ public class Controller {
     public Controller() {
     }
 
-    public static String queueInfo(Queue queue){
-        String info = "No hay carros";
-            Queue auxQueue1 = new Queue();
-            info = "";
-            while(!queue.isEmpty()){
-                Node aux = queue.pull();
-                info = (info + aux.getID() + "\n");
-                auxQueue1.insertANode(aux);
-
-            }
-            System.out.println("Viene info");
-            System.out.println(info);
-            queue  = auxQueue1;
-        
-        return info;
-    }
+  
     //This method will return the String with the whole info of the first queue to show it on the view 
     public static String firstQueueInfo(){
         String info = "No hay carros";
-            Queue auxQueue1 = new Queue();
-            info = "";
-            while(!Factory.firstPriority.isEmpty()){
-                Node aux = Factory.firstPriority.pull();
-                info = (info + aux.getID() + "\n");
-                auxQueue1.insertANode(aux);
-
-            }
-            System.out.println("Viene info");
-            System.out.println(info);
-            Factory.firstPriority  = auxQueue1;
+        Queue auxQueue1 = new Queue();
+        info = "";
+        while(!Factory.firstPriority.isEmpty()){
+            Node aux = Factory.firstPriority.pull();
+            info = (info + aux.getID() + "\n");
+            auxQueue1.insertANode(aux);
+        }
+        Factory.firstPriority  = auxQueue1;
+        if (Factory.firstPriority.isEmpty()) {
+            info = "No hay carros";
+        }
         
         return info;
     }
@@ -68,7 +53,9 @@ public class Controller {
             System.out.println("Viene info");
             System.out.println(info);
             Factory.secondPriority  = auxQueue;
-        
+            if (Factory.secondPriority.isEmpty()) {
+                info = "No hay carros";
+            }
         return info;
     }
     
@@ -86,7 +73,9 @@ public class Controller {
             System.out.println("Viene info");
             System.out.println(info);
             Factory.thirdPriority  = auxQueue;
-        
+        if (Factory.thirdPriority.isEmpty()) {
+            info = "No hay carros";
+        }
         return info;
     }
     //This method will return the String with the whole info of the inMaintenance queue to show it on the view 
@@ -103,7 +92,9 @@ public class Controller {
             System.out.println("Viene info");
             System.out.println(info);
             Factory.inMaintenance  = auxQueue;
-        
+        if (Factory.inMaintenance.isEmpty()) {
+            info = "No hay carros";
+        }
         return info;
     }
     

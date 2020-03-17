@@ -34,7 +34,7 @@ public class Factory {
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setLocationRelativeTo(null);
         boolean newCarInCicle = false;
-       
+        int i = 0;
         //There is the instance of the first car
         createACar(); 
         //It starts the execution
@@ -53,7 +53,7 @@ public class Factory {
                 newCarInCicle = true;
             }
             Node carInMechanic = admin.returnACar();
-            //We validate here every variable of the view
+            //here we validate every variable of the view
             if (carInMechanic != controller.getCarInMechanic() && carInMechanic != null) {
                 controller.setCarInMechanic(carInMechanic);
                 v.fixingjTextField.setText(String.valueOf(carInMechanic.getID()));
@@ -63,22 +63,22 @@ public class Factory {
             }
             if (Factory.firstPriority != controller.firstPriority) {
                 controller.setFirstPriority(Factory.firstPriority);
-                v.firstjTextArea.setText(controller.queueInfo(Factory.firstPriority));
+                v.firstjTextArea.setText(controller.firstQueueInfo());
             }
             if (Factory.secondPriority != controller.secondPriority) {
                 controller.setSecondPriority(Factory.secondPriority);
-                v.secondjTextArea.setText(controller.queueInfo(Factory.secondPriority));
+                v.secondjTextArea.setText(controller.secondQueueInfo());
             }
             if (Factory.thirdPriority != controller.thirdPriority) {
                 controller.setThirdPriority(Factory.thirdPriority);
-//                v.thirdjTextArea.setText(controller.thirdQueueInfo());
-                v.thirdjTextArea.setText(controller.queueInfo(Factory.thirdPriority));
+                  v.thirdjTextArea.setText(controller.thirdQueueInfo());
+  //              v.thirdjTextArea.setText(controller.queueInfo(Factory.thirdPriority));
 
             }
             if (Factory.inMaintenance != controller.inMaintenance) {
                 controller.setInMaintenance(Factory.inMaintenance);
-  //              v.lockjTextArea.setText(controller.inMaintenanceQueueInfo());
-                v.thirdjTextArea.setText(controller.queueInfo(Factory.inMaintenance));
+                v.lockjTextArea.setText(controller.inMaintenanceQueueInfo());
+                //v.thirdjTextArea.setText(controller.queueInfo(Factory.inMaintenance));
             }
             
             mechanic.checkACar(carInMechanic);
