@@ -10,6 +10,7 @@ package checkacar;
  * @author kathe
  */
 public class Vista extends javax.swing.JFrame {
+        boolean startExecution = false;
 
     /**
      * Creates new form Vista
@@ -56,7 +57,7 @@ public class Vista extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 950));
+        setMaximumSize(new java.awt.Dimension(850, 800));
         setPreferredSize(new java.awt.Dimension(850, 800));
         setResizable(false);
 
@@ -121,6 +122,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane1.setMinimumSize(new java.awt.Dimension(166, 96));
         jScrollPane1.setPreferredSize(new java.awt.Dimension(160, 90));
 
+        lockjTextArea.setEditable(false);
         lockjTextArea.setBackground(new java.awt.Color(188, 186, 190));
         lockjTextArea.setColumns(20);
         lockjTextArea.setRows(5);
@@ -135,6 +137,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane2.setMinimumSize(new java.awt.Dimension(166, 96));
         jScrollPane2.setPreferredSize(new java.awt.Dimension(160, 90));
 
+        firstjTextArea.setEditable(false);
         firstjTextArea.setBackground(new java.awt.Color(188, 186, 190));
         firstjTextArea.setColumns(20);
         firstjTextArea.setRows(5);
@@ -149,6 +152,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane3.setMinimumSize(new java.awt.Dimension(166, 96));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(160, 90));
 
+        secondjTextArea.setEditable(false);
         secondjTextArea.setBackground(new java.awt.Color(188, 186, 190));
         secondjTextArea.setColumns(20);
         secondjTextArea.setRows(5);
@@ -164,6 +168,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane4.setMinimumSize(new java.awt.Dimension(166, 96));
         jScrollPane4.setPreferredSize(new java.awt.Dimension(160, 90));
 
+        thirdjTextArea.setEditable(false);
         thirdjTextArea.setBackground(new java.awt.Color(188, 186, 190));
         thirdjTextArea.setColumns(20);
         thirdjTextArea.setRows(5);
@@ -189,6 +194,7 @@ public class Vista extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/checkacar/lock.png"))); // NOI18N
         jLabel7.setText("jLabel7");
 
+        fixingjTextField.setEditable(false);
         fixingjTextField.setBackground(new java.awt.Color(188, 186, 190));
         fixingjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +244,7 @@ public class Vista extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
                                 .addComponent(fixingjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(53, Short.MAX_VALUE))))
+                        .addContainerGap(54, Short.MAX_VALUE))))
         );
         mainjPanelLayout.setVerticalGroup(
             mainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +255,7 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(fixingjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8))
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(mainjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainjPanelLayout.createSequentialGroup()
@@ -294,7 +300,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void startjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startjButtonActionPerformed
 
-        
+        startExecution = true;
         homejPanel.setVisible(false);
         mainjPanel.setVisible(true);
     }//GEN-LAST:event_startjButtonActionPerformed
@@ -306,6 +312,7 @@ public class Vista extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -336,11 +343,12 @@ public class Vista extends javax.swing.JFrame {
                 new Vista().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea firstjTextArea;
-    private javax.swing.JTextField fixingjTextField;
+    public javax.swing.JTextArea firstjTextArea;
+    public javax.swing.JTextField fixingjTextField;
     private javax.swing.JPanel homejPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -355,10 +363,10 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea lockjTextArea;
+    public javax.swing.JTextArea lockjTextArea;
     private javax.swing.JPanel mainjPanel;
-    private javax.swing.JTextArea secondjTextArea;
+    public javax.swing.JTextArea secondjTextArea;
     private javax.swing.JButton startjButton;
-    private javax.swing.JTextArea thirdjTextArea;
+    public javax.swing.JTextArea thirdjTextArea;
     // End of variables declaration//GEN-END:variables
 }

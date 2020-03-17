@@ -15,28 +15,45 @@ public class Admin {
     }
     
     
-    
+    //This method update the number of cars that have been on the mechanic before
+    //the current car or node passes to the mechanic
     public void manageNodes(){
         if (!Factory.secondPriority.isEmpty()) {
-        
-            Factory.secondPriority.actNumberNodes();
-        
+            Queue auxQueue1 = new Queue();
+            while(!Factory.secondPriority.isEmpty()){
+                Node aux = Factory.secondPriority.pull();
+                aux.setnCarsChecked(aux.getnCarsChecked()+1);
+                auxQueue1.insertANode(aux);
+
+            }
+            Factory.secondPriority  = auxQueue1;
         }
-        if (!Factory.thirdPriority.isEmpty()) {
-            
-            Factory.thirdPriority.actNumberNodes();
         
-        }
+        if(!Factory.thirdPriority.isEmpty()){
+            Queue auxQueue2 = new Queue();
+            while (!Factory.thirdPriority.isEmpty()) {
+                Node aux = Factory.thirdPriority.pull();
+                aux.setnCarsChecked(aux.getnCarsChecked()+1);
+                auxQueue2.insertANode(aux);
+            }
+            Factory.thirdPriority = auxQueue2;
+        }  
     }
     
+    //This method update the priority of the car when 10 cars have been in the mechanic
+    //before the car that is being updated.
     public void updateNodes(){
         
         Queue auxQueue2 = new Queue();
         while(!Factory.secondPriority.isEmpty()){
             if(Factory.secondPriority.getRoot().getnCarsChecked() == 10){
-                Factory.firstPriority.insertANode(Factory.secondPriority.pull(), 1);
+                Node aux = Factory.secondPriority.pull();
+                aux.setPriority(1);
+                aux.setnCarsChecked(0);
+                aux.setpNext(null);
+                Factory.firstPriority.insertANode(aux);
             }else{
-                auxQueue2.insertANode(Factory.secondPriority.pull(), 2);
+                auxQueue2.insertANode(Factory.secondPriority.pull());
             }
         }
         Factory.secondPriority = auxQueue2;
@@ -44,15 +61,20 @@ public class Admin {
         Queue auxQueue3 = new Queue();
         while(!Factory.thirdPriority.isEmpty()){
             if (Factory.thirdPriority.getRoot().getnCarsChecked()==10) {
-                Factory.secondPriority.insertANode(Factory.thirdPriority.pull(), 2);
+                Node aux = Factory.thirdPriority.pull();
+                aux.setPriority(2);
+                aux.setnCarsChecked(0);
+                aux.setpNext(null);
+                Factory.secondPriority.insertANode(aux);
             }else{
-                auxQueue3.insertANode(Factory.thirdPriority.pull(), 3);
+                auxQueue3.insertANode(Factory.thirdPriority.pull());
             }
         }
         Factory.thirdPriority = auxQueue3;
     }
     
-    public int returnANode(){
+    //This method return the node of the car that will be on the mechanic
+    public Node returnACar(){
         if (!Factory.firstPriority.isEmpty()) {
         
             return Factory.firstPriority.pull();
@@ -67,7 +89,29 @@ public class Admin {
             
         }
         
-        return 0;
+        return null;
+    }
+    //This method decides if the first car of the inMaintenance queue will be again
+    // in its original queue or will stay there.
+    public void endTheRepair(){
+        int r =  (int)((Math.random() * 10) + 1);
+        if (r <= 6) {
+            Node aux = Factory.inMaintenance.pull();
+            aux.setpNext(null);
+            switch (aux.getPriority()) {
+                case 1:
+                    Factory.firstPriority.insertANode(aux);
+                    break;
+                case 2:
+                    Factory.secondPriority.insertANode(aux);
+                    break;
+                case 3: 
+                    Factory.thirdPriority.insertANode(aux);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        }
     }
         
 }
