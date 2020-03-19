@@ -113,5 +113,31 @@ public class Admin {
             }
         }
     }
+    
+    //This method insert a car in a random queue.
+    public static void createACar(){
+        int r =  (int)((Math.random() * 10) + 1);
+        
+        if (r <= 6) {
+
+            int priority = (int)((Math.random() * 3) + 1);
+
+            switch (priority) {
+                case 1:
+                    Factory.firstPriority.insertANode(Factory.numberID, 1);
+                    break;
+                case 2:
+                    Factory.secondPriority.insertANode(Factory.numberID, 2);
+                    break;
+                case 3:
+                    Factory.thirdPriority.insertANode(Factory.numberID, 3);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            Factory.numberID++;
+            
+        }
+    }
         
 }

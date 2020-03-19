@@ -20,7 +20,7 @@ public class Mechanic {
     //This method checks the car and decides what happens with the current car.
     public void checkACar(Node car) throws InterruptedException{
         if(car != null){
-            Thread.sleep(100);
+            Thread.sleep(5000);
             int p = checkProbably();
             car.setnCarsChecked(0);
             car.setpNext(null);

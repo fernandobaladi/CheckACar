@@ -36,7 +36,7 @@ public class Factory {
         boolean newCarInCicle = false;
         int i = 0;
         //There is the instance of the first car
-        createACar(); 
+        admin.createACar(); 
         //It starts the execution
         while(true){
             
@@ -47,7 +47,7 @@ public class Factory {
             }
             
             if (newCarInCicle) {
-                createACar();
+                admin.createACar();
                 newCarInCicle = false;
             }else{
                 newCarInCicle = true;
@@ -86,30 +86,6 @@ public class Factory {
         }
     }
     
-    //This method insert a car in a random queue.
-    public static void createACar(){
-        int r =  (int)((Math.random() * 10) + 1);
-        
-        if (r <= 6) {
-
-            int priority = (int)((Math.random() * 3) + 1);
-
-            switch (priority) {
-                case 1:
-                    firstPriority.insertANode(numberID, 1);
-                    break;
-                case 2:
-                    secondPriority.insertANode(numberID, 2);
-                    break;
-                case 3:
-                    thirdPriority.insertANode(numberID, 3);
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-            numberID++;
-            
-        }
-    }
+    
     
 }

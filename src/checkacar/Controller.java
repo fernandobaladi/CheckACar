@@ -50,8 +50,6 @@ public class Controller {
                 auxQueue.insertANode(aux);
 
             }
-            System.out.println("Viene info");
-            System.out.println(info);
             Factory.secondPriority  = auxQueue;
             if (Factory.secondPriority.isEmpty()) {
                 info = "No hay carros";
@@ -70,8 +68,6 @@ public class Controller {
                 auxQueue.insertANode(aux);
 
             }
-            System.out.println("Viene info");
-            System.out.println(info);
             Factory.thirdPriority  = auxQueue;
         if (Factory.thirdPriority.isEmpty()) {
             info = "No hay carros";
@@ -89,8 +85,6 @@ public class Controller {
                 auxQueue.insertANode(aux);
 
             }
-            System.out.println("Viene info");
-            System.out.println(info);
             Factory.inMaintenance  = auxQueue;
         if (Factory.inMaintenance.isEmpty()) {
             info = "No hay carros";
